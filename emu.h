@@ -15,7 +15,8 @@ extern s32 SPCtime;
 extern SPCFileInformation *SPCInfo;
 extern void (*SPC_Write_DSP_Hook)(u8);
 
-#define SPCUpdateRate 100
+//#define SPCUpdateRate 60
+//Now a startup option
 
 s32 SPCInit(char *);
 void SPCAddWriteDSPCallback(void (*ToAddCallback)(u8));

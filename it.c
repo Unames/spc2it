@@ -332,7 +332,7 @@ s32 ITUpdate() // Dumps pattern buffers to file
 	return 0;
 }
 
-s32 ITWrite(char *fn) // Write the final IT file
+s32 ITWrite(char *fn, s32 SPCUpdateRate) // Write the final IT file
 {
 	FILE *f;
 	s32 i, t, numsamps, ofs;
