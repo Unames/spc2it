@@ -220,14 +220,14 @@ static void ITSSave(sndsamp *s, FILE *f) // Save sample
 	}
 	memcpy(sHeader->magic, "IMPS", 4);
 	if (length)
-		strcpy(sHeader->fileName, "SPC2ITSAMPLE");
+		strcpy_s(sHeader->fileName, sizeof("SPC2ITSAMPLE"), "SPC2ITSAMPLE");
 	sHeader->GlobalVolume = 64;
 	sHeader->Flags |= 2; // Bit 1 (16 bit)
 	if (length)
 		sHeader->Flags |= 1; // Bit 0 (sample included with header)
 	sHeader->Volume = 64;
 	if (length)
-		strcpy(sHeader->SampleName, "SPC2ITSAMPLE");
+		strcpy_s(sHeader->SampleName, sizeof("SPC2ITSAMPLE"), "SPC2ITSAMPLE");
 	sHeader->Convert = 1;
 	sHeader->DefaultPan = 0;
 	sHeader->NumberOfSamples = length;
@@ -384,7 +384,7 @@ s32 ITWrite(char *fn, s32 SPCUpdateRate) // Write the final IT file
 	if (SPCInfo->SongTitle[0])
 		strncpy(fHeader->songName, SPCInfo->SongTitle, 25);
 	else
-		strcpy(fHeader->songName, "spc2it conversion"); // default string
+		strcpy_s(fHeader->songName, sizeof("spc2it conversion"), "spc2it conversion"); // default string
 	fHeader->OrderNumber = curpatt + 1; // number of orders + terminating order
 	for (numsamps = IT_SAMPLE_MAX; ITSamples[numsamps - 1] == NULL; numsamps--)
 		; // Count the number of samples (the reason of the minus one is because c arrays start at 0)
