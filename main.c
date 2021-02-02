@@ -110,9 +110,9 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
-	if ((!limit) && (SPCtime))
+	if ((limit==0) && (SPCtime))
 		limit = SPCtime;
-	else if (!limit)
+	else if (limit==0)
 		limit = 60;
 
 	printf("Time (seconds):      %i\n", limit);
