@@ -57,6 +57,7 @@ int main(int argc, char **argv)
 	if (!(SPCFileSize == 65920))
 		printf("Warning: wrong size SPCFile: %zu \n", SPCFileSize);
 	s32 seconds, limit, ITrows, SPCUpdateRate;
+	char fn[_MAX_PATH];
 	s32 i;
 	fn[0] = 0;
 	ITrows = 180; // Default 180 IT rows/pattern
@@ -159,7 +160,7 @@ int main(int argc, char **argv)
 		}
 	}
 	printf("\n\nSaving file...\n");
-	for (i = 0; i < PATH_MAX; i++)
+	for (i = 0; i < _MAX_PATH; i++)
 		if (fn[i] == 0)
 			break;
 	for (; i > 0; i--)
